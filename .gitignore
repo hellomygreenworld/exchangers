@@ -11,6 +11,7 @@ target/
 *.iws
 *.iml
 *.ipr
+.idea/
 
 ### Eclipse ###
 .apt_generated
@@ -37,5 +38,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
-src/main/webapp/resources/bootstrap-5.2.3-dist/
+src/main/resources/bootstrap-5.2.3-dist/
 node_modules/
