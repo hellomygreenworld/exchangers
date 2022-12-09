@@ -5,7 +5,7 @@
 <configuration>
 
     <typeAliases>
-        <package name="com.snut.cse.exchangers.domain"/>
+        <typeAlias type="com.snut.cse.exchangers.article.domain.ArticleVO" alias="ArticleVO"/>
     </typeAliases>
 
 </configuration>
