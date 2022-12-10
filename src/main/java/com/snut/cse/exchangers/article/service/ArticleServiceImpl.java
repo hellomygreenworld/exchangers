@@ -2,6 +2,9 @@ package com.snut.cse.exchangers.article.service;
 
 import javax.inject.Inject;
 import java.util.List;
+
+import com.snut.cse.exchangers.commons.paging.Criteria;
+import com.snut.cse.exchangers.commons.paging.SearchCriteria;
 import org.springframework.stereotype.Service;
 
 import com.snut.cse.exchangers.article.persistence.ArticleDAO;
@@ -41,4 +44,25 @@ public class ArticleServiceImpl implements ArticleService {
     public List<ArticleVO> listAll() throws Exception {
         return articleDAO.listAll();
     }
+
+    @Override
+    public List<ArticleVO> listCriteria(Criteria criteria) throws Exception {
+        return articleDAO.listCriteria(criteria);
+    }
+
+    @Override
+    public int countArticles(Criteria criteria) throws Exception {
+        return articleDAO.countArticles(criteria);
+    }
+
+    @Override
+    public List<ArticleVO> listSearch(SearchCriteria searchCriteria) throws Exception {
+        return articleDAO.listSearch(searchCriteria);
+    }
+
+    @Override
+    public int countSearchedArticles(SearchCriteria searchCriteria) throws Exception {
+        return articleDAO.countSearchedArticles(searchCriteria);
+    }
+
 }

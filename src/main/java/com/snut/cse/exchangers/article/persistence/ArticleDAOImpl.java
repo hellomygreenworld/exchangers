@@ -1,6 +1,8 @@
 package com.snut.cse.exchangers.article.persistence;
 
 import com.snut.cse.exchangers.article.domain.ArticleVO;
+import com.snut.cse.exchangers.commons.paging.Criteria;
+import com.snut.cse.exchangers.commons.paging.SearchCriteria;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -51,9 +53,28 @@ public class ArticleDAOImpl implements ArticleDAO {
         if (page <= 0) {
             page = 1;
         }
-
         page = (page - 1) * 10;
 
         return sqlSession.selectList(NAMESPACE + ".listPaging", page);
+    }
+
+    @Override
+    public List<ArticleVO> listCriteria(Criteria criteria) throws Exception {
+        return sqlSession.selectList(NAMESPACE + ".listCriteria", criteria);
+    }
+
+    @Override
+    public int countArticles(Criteria criteria) throws Exception {
+        return sqlSession.selectOne(NAMESPACE + ".countArticles", criteria);
+    }
+
+    @Override
+    public List<ArticleVO> listSearch(SearchCriteria searchCriteria) throws Exception {
+        return sqlSession.selectList(NAMESPACE + ".listSearch", searchCriteria);
+    }
+
+    @Override
+    public int countSearchedArticles(SearchCriteria searchCriteria) throws Exception {
+        return sqlSession.selectOne(NAMESPACE + ".countSearchedArticles", searchCriteria);
     }
 }

@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<%@ include file="../include/head.jsp"%>
+<%@ include file="../../include/head.jsp"%>
 <!--
 BODY TAG OPTIONS:
 =================
@@ -32,10 +32,10 @@ desired effect
 <div class="wrapper">
 
     <!-- Main Header -->
-    <%@ include file="../include/main_header.jsp" %>
+    <%@ include file="../../include/main_header.jsp" %>
 
     <!-- Left side column. contains the logo and sidebar -->
-    <%@ include file="../include/left_column.jsp" %>
+    <%@ include file="../../include/left_column.jsp" %>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -62,6 +62,10 @@ desired effect
                         </div>
                         <div class="box-body">
                             <input type="hidden" name="articleNo" value="${article.articleNo}">
+                            <input type="hidden" name="page" value="${searchCriteria.page}">
+                            <input type="hidden" name="perPageNum" value="${searchCriteria.perPageNum}">
+                            <input type="hidden" name="searchType" value="${searchCriteria.searchType}">
+                            <input type="hidden" name="keyword" value="${searchCriteria.keyword}">
                             <div class="form-group">
                                 <label for="title">제목</label>
                                 <input class="form-control" id="title" name="title" placeholder="제목을 입력해주세요" value="${article.title}">
@@ -93,11 +97,11 @@ desired effect
     <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
-    <%@ include file="../include/main_footer.jsp" %>
+    <%@ include file="../../include/main_footer.jsp" %>
 </div>
 
 <!-- ./wrapper -->
-<%@ include file="../include/plugin_js.jsp"%>
+<%@ include file="../../include/plugin_js.jsp"%>
 <script>
     $(document).ready(function () {
 
@@ -113,7 +117,10 @@ desired effect
         });
 
         $(".listBtn").on("click", function () {
-            self.location = "/article/list"
+            self.location = "/article/paging/search/list?page=${searchCriteria.page}"
+                + "&perPageNum=${searchCriteria.perPageNum}"
+                + "&searchType=${searchCriteria.searchType}"
+                + "&keyword=${searchCriteria.keyword}";
         });
 
     });

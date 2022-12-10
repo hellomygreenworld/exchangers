@@ -2,6 +2,8 @@ package com.snut.cse.exchangers.article;
 
 import com.snut.cse.exchangers.article.domain.ArticleVO;
 import com.snut.cse.exchangers.article.persistence.ArticleDAO;
+import com.snut.cse.exchangers.commons.paging.Criteria;
+import com.snut.cse.exchangers.commons.paging.SearchCriteria;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -36,7 +38,7 @@ public class ArticleDAOTest {
 
     @Test
     public void testRead() throws Exception {
-        logger.info(articleDAO.read(1).toString());
+        logger.info(articleDAO.read(10).toString());
     }
 
     @Test
@@ -64,6 +66,70 @@ public class ArticleDAOTest {
             logger.info(article.getArticleNo() + ":" + article.getTitle());
         }
 
+    }
+
+    @Test
+    public void testListCriteria() throws Exception {
+        Criteria criteria = new Criteria();
+        criteria.setPage(3);
+        criteria.setPerPageNum(20);
+
+        List<ArticleVO> articles = articleDAO.listCriteria(criteria);
+
+        for (ArticleVO article : articles) {
+            logger.info(article.getArticleNo() + " : " + article.getTitle());
+        }
+    }
+
+    @Test
+    public void testURI() throws Exception {
+
+        UriComponents uriComponents = UriComponentsBuilder.newInstance()
+                .path("/article/read")
+                .queryParam("articleNo", 12)
+                .queryParam("perPageNum", 20)
+                .build();
+
+        logger.info("/article/read?articleNo=12&perPageNum=20");
+        logger.info(uriComponents.toString());
+
+    }
+
+    @Test
+    public void testURI2() throws Exception {
+
+        UriComponents uriComponents = UriComponentsBuilder.newInstance()
+                .path("/{module}/{page}")
+                .queryParam("articleNo", 12)
+                .queryParam("perPageNum", 20)
+                .build()
+                .expand("article", "read")
+                .encode();
+
+        logger.info("/article/read?articleNo=12&perPageNum=20");
+        logger.info(uriComponents.toString());
+
+    }
+
+    @Test
+    public void testDynamic1() throws Exception {
+
+        SearchCriteria searchCriteria = new SearchCriteria();
+        searchCriteria.setPage(1);
+        searchCriteria.setKeyword("999");
+        searchCriteria.setSearchType("t");
+
+        logger.info("======================");
+
+        List<ArticleVO> articles = articleDAO.listSearch(searchCriteria);
+
+        for (ArticleVO article : articles) {
+            logger.info(article.getArticleNo() + " : " + article.getTitle());
+        }
+
+        logger.info("======================");
+
+        logger.info("searched articles count : " + articleDAO.countSearchedArticles(searchCriteria));
     }
 
 }
