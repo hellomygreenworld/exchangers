@@ -172,14 +172,14 @@
 
         $("#searchBtn").on("click", function (event) {
             self.location =
-                "/article/paging/search/list${pageMaker.makeQuery(1)}"
+                "/exchangers/article/paging/search/list${pageMaker.makeQuery(1)}"
                 + "&searchType=" + $("select option:selected").val()
                 + "&keyword=" + encodeURIComponent($("#keywordInput").val());
         });
 
         $("#writeBtn").on("click", function (event) {
 
-            self.location = "/article/paging/search/write";
+            self.location = "/exchangers/article/paging/search/write";
 
         });
     });

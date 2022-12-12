@@ -117,7 +117,7 @@ desired effect
         });
 
         $(".listBtn").on("click", function () {
-            self.location = "/article/paging/search/list?page=${searchCriteria.page}"
+            self.location = "/exchangers/article/paging/search/list?page=${searchCriteria.page}"
                 + "&perPageNum=${searchCriteria.perPageNum}"
                 + "&searchType=${searchCriteria.searchType}"
                 + "&keyword=${searchCriteria.keyword}";
