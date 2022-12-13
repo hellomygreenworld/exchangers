@@ -16,6 +16,9 @@
 <!-- AdminLTE App -->
 <script src="${pageContext.request.contextPath}/dist/js/adminlte.min.js"></script>
 
+<%--Handlebars--%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
 Both of these plugins are recommended to enhance the
 user experience. -->

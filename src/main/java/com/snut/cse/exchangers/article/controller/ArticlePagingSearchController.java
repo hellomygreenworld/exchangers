@@ -44,7 +44,7 @@ public class ArticlePagingSearchController {
         return "article/search/list";
     }
 
-    // 조화 페이지
+    // 조회 페이지
     @RequestMapping(value = "/read", method = RequestMethod.GET)
     public String read(@RequestParam("articleNo") int articleNo,
                        @ModelAttribute("searchCriteria") SearchCriteria searchCriteria,
@@ -54,6 +54,14 @@ public class ArticlePagingSearchController {
         model.addAttribute("article", articleService.read(articleNo));
 
         return "article/search/read";
+    }
+
+    @RequestMapping(value = "/write", method = RequestMethod.GET)
+    public String writeGET() {
+
+        logger.info("paging writeGET() called...");
+
+        return "article/paging/write";
     }
 
     // 수정 페이지

@@ -6,6 +6,7 @@
 
     <typeAliases>
         <typeAlias type="com.snut.cse.exchangers.article.domain.ArticleVO" alias="ArticleVO"/>
+        <typeAlias type="com.snut.cse.exchangers.reply.domain.ReplyVO" alias="ReplyVO"/>
     </typeAliases>
 
 </configuration>

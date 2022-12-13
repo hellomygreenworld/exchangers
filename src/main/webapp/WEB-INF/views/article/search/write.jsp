@@ -97,18 +97,18 @@ desired effect
         console.log(formObj);
 
         $(".modBtn").on("click", function () {
-            formObj.attr("action", "/exchangers/article/modify");
+            formObj.attr("action", "/exchangers/article/paging/search/modify");
             formObj.attr("method", "get");
             formObj.submit();
         });
 
         $(".delBtn").on("click", function () {
-            formObj.attr("action", "/exchangers/article/remove");
+            formObj.attr("action", "/exchangers/article/paging/search/remove");
             formObj.submit();
         });
 
         $(".listBtn").on("click", function () {
-            self.location = "/exchangers/article/list"
+            self.location = "/exchangers/article/paging/search/list"
         });
 
     });

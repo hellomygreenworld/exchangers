@@ -30,7 +30,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><i class="fa fa-edit"></i> article</li>
-                <li class="active"><a href="${path}/article/list"> list</a></li>
+                <li class="active"><a href="${path}/article/paging/search/list"> list</a></li>
             </ol>
         </section>
 

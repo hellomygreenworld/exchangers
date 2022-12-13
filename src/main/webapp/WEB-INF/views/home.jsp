@@ -43,8 +43,8 @@ desired effect
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Page Header
-                <small>Optional description</small>
+                교환학생 정보 공유 게시판입니다.
+                <small>교환학생 정보 공유</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -58,6 +58,7 @@ desired effect
             <!--------------------------
               | Your Page Content Here |
               -------------------------->
+            <img src="dist/img/logo.png" width="1000px">
 
         </section>
         <!-- /.content -->
